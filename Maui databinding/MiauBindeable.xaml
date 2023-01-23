@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_databinding.MiauBindeable"
+             Title="MiauBindeable">
+    <FlexLayout x:Name="LettersContainer"
+                Grid.Row="1"
+                BindableLayout.ItemsSource="{Binding Letters}"
+                JustifyContent="SpaceEvenly"
+                Wrap="Wrap">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Button Clicked="Button_OnClicked"
+                        HeightRequest="50"
+                        Text="{Binding .}"
+                        WidthRequest="50" />
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+        <BindableLayout.EmptyView>
+            <Label Text="Nada que mostrar aqui" HorizontalTextAlignment="Center" />
+        </BindableLayout.EmptyView>
+    </FlexLayout>
+</ContentPage>
