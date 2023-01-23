@@ -23,6 +23,11 @@ public partial class MiauBindeable : ContentPage
 
     private void Button_OnClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        ((Button)sender).IsEnabled = false;
+    }
+
+    private void BtnBomba_OnClicked(object sender, EventArgs e)
+    {
+        Letters = new List<char>();
     }
 }

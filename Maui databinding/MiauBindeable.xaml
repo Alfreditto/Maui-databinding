@@ -4,21 +4,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui_databinding.MiauBindeable"
              Title="MiauBindeable">
-    <FlexLayout x:Name="LettersContainer"
-                Grid.Row="1"
-                BindableLayout.ItemsSource="{Binding Letters}"
-                JustifyContent="SpaceEvenly"
-                Wrap="Wrap">
-        <BindableLayout.ItemTemplate>
-            <DataTemplate>
-                <Button Clicked="Button_OnClicked"
-                        HeightRequest="50"
-                        Text="{Binding .}"
-                        WidthRequest="50" />
-            </DataTemplate>
-        </BindableLayout.ItemTemplate>
-        <BindableLayout.EmptyView>
-            <Label Text="Nada que mostrar aqui" HorizontalTextAlignment="Center" />
-        </BindableLayout.EmptyView>
-    </FlexLayout>
+    <Grid RowDefinitions="0.8*, 0.2*">
+        <FlexLayout x:Name="LettersContainer"
+                    Grid.Row="0"
+                    BindableLayout.ItemsSource="{Binding Letters}"
+                    JustifyContent="SpaceEvenly"
+                    Wrap="Wrap">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+
+
+                    <Button Clicked="Button_OnClicked"
+                            HeightRequest="50"
+                            Text="{Binding .}"
+                            WidthRequest="50" 
+                            Grid.Row="0"/>
+
+
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+
+            <BindableLayout.EmptyView>
+                <Label Text="Nada que mostrar aqui" HorizontalTextAlignment="Center" />
+            </BindableLayout.EmptyView>
+
+        </FlexLayout>
+        <Button x:Name="btnBomba"
+                HeightRequest="50"
+                Text="BOMBA!"
+                Clicked="BtnBomba_OnClicked"
+                Grid.Row="1" />
+    </Grid>
 </ContentPage>
